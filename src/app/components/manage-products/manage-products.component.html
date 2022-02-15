@@ -1,0 +1,11 @@
+
+
+<mat-grid-list [cols]="colCount" rowHeight="4:3">
+  <mat-grid-tile  *ngFor="let product of products">
+    <div *ngIf="products">
+      <div (click)="navigateToProductDetail(product.id.toString())">
+        {{product.name}}
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

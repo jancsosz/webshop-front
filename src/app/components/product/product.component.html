@@ -1,0 +1,8 @@
+<div *ngIf="product">
+  <h1>{{product.name}}</h1>
+  <p>{{product.price}}</p>
+  <p>{{product.description}}</p>
+  <p>{{product.quantityInStock > 0 ? 'In stock' : 'Currently not in stock'}}</p>
+  <button mat-raised-button color="warn" (click)="deleteProduct()">Delete product</button>
+  <button mat-raised-button color="primary" (click)="modifyProduct()">Modify product</button>
+</div>
