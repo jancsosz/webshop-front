@@ -1,0 +1,27 @@
+.side-container {
+  width: 12rem;
+  margin-right: auto;
+  margin-left: .5rem;
+  position: absolute;
+}
+.form-inline .form-control {
+  width: 12rem !important;
+  margin-bottom: .5rem;
+}
+
+@media(max-width: 576px) {
+  .side-container {
+    position: relative;
+    width: auto;
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+  .form-inline .form-control {
+    width: auto;
+  }
+
+  .form-inline {
+    justify-content: space-evenly;
+  }
+}
