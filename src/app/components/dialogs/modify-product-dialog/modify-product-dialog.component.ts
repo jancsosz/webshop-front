@@ -38,16 +38,17 @@ export class ModifyProductDialogComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.selected = this.data.category;
-    console.log(this.selected);
   }
 
   update(): void {
-    this.productService.updateProductPUT(this.createProductDto())
-      .then(() => {
-        this.dialogRef.close();
-        this.dialog.open(MessageDialogComponent, {data: 'Successful modification!'});
-      })
-      .catch((error) => console.log(error));
+    if (this.updateProductForm.valid) {
+      this.productService.updateProductPUT(this.createProductDto())
+        .then(() => {
+          this.dialogRef.close();
+          this.dialog.open(MessageDialogComponent, {data: 'Successful modification!'});
+        })
+        .catch(() => this.dialog.open(MessageDialogComponent, {data: 'There was an error updating this product.'}));
+    }
   }
 
   private createForm(): void {
