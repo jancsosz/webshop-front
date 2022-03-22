@@ -7,5 +7,50 @@ html, body { height: 100%; }
 body {
   margin: 0;
   background: #131313;
-  color: #fff
+  color: slategray;
+}
+
+*, *::before, *::after {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: hsl(200, 50%, 50%);
+}
+
+.mat-form-field {
+  .mat-input-element {
+    color: slategray;
+  }
+  .mat-form-field-label {
+    color: slategray;
+  }
+  .mat-form-field-underline {
+    background-color: slategray;
+  }
+  .mat-form-field-ripple {
+    background-color: slategray;
+  }
+  .mat-form-field-required-marker {
+    color: slategray;
+  }
+  .mat-select-min-line {
+    color: slategray;
+  }
+  .mat-select-arrow {
+    color: slategray;
+  }
+}
+
+.mat-slategray {
+  background-color: hsl(200, 50%, 50%);
+  color: aliceblue;
+}
+
+.mat-dialog-title {
+  color: slategray;
+}
+
+.mat-dialog-container {
+  background-color: #131313;
 }
