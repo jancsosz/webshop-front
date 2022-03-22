@@ -3,6 +3,18 @@
   <p>{{product.price}}</p>
   <p>{{product.description}}</p>
   <p>{{product.quantityInStock > 0 ? 'In stock' : 'Currently not in stock'}}</p>
-  <button mat-raised-button color="warn" (click)="deleteProduct()">Delete product</button>
-  <button mat-raised-button color="primary" (click)="modifyProduct()">Modify product</button>
+  <div class="admin-func">
+    <button mat-raised-button color="warn" (click)="deleteProduct()">Delete product</button>
+    <button mat-raised-button color="slategray" (click)="modifyProduct()">Modify product</button>
+  </div>
+  <form [formGroup]="cartGroup" (ngSubmit)="addToCart()">
+    <mat-form-field>
+      <button class="inc-dec" mat-button color="slategray" (click)="decrement()" [disabled]="decDisabled">-</button>
+
+      <input matInput type="text" [value]="counter" disabled required>
+
+      <button class="inc-dec" mat-button color="slategray" (click)="increment()" [disabled]="incDisabled">+</button>
+    </mat-form-field>
+    <button style="margin-left: 20px" mat-raised-button color="slategray" type="submit">Add to cart</button>
+  </form>
 </div>

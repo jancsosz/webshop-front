@@ -4,6 +4,9 @@ import {ProductService} from '../../services/product.service';
 import {ProductDto} from '../../model/dto/ProductDto';
 import {MatDialog} from '@angular/material/dialog';
 import {ModifyProductDialogComponent} from '../dialogs/modify-product-dialog/modify-product-dialog.component';
+import {FormGroup} from '@angular/forms';
+import {Message} from '@angular/compiler/src/i18n/i18n_ast';
+import {MessageDialogComponent} from '../dialogs/message-dialog/message-dialog.component';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +15,12 @@ import {ModifyProductDialogComponent} from '../dialogs/modify-product-dialog/mod
 })
 export class ProductComponent implements OnInit {
 
+  cartGroup: FormGroup;
   product: ProductDto;
+  quantity: number[];
+  counter = 1;
+  decDisabled = true;
+  incDisabled = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +37,10 @@ export class ProductComponent implements OnInit {
     this.productService.getProductGET(this.route.snapshot.paramMap.get('id'))
       .then(result => {
         this.product = result;
+        for (let i = 0; i < this.product.quantityInStock; i++) {
+          // TODO
+          //  this.quantity
+        }
       })
       .catch(() => {
           this.router.navigate(['manage-products']);
@@ -36,18 +48,52 @@ export class ProductComponent implements OnInit {
       );
   }
 
+  public addToCart(): void {
+    // TODO
+  }
+
+  public increment(): void {
+    if (this.counter < this.product.quantityInStock && this.counter <= 10) {
+      this.counter++;
+      if (this.decDisabled) {
+        this.decDisabled = false;
+      }
+    }
+    if (this.counter >= this.product.quantityInStock || this.counter >= 10) {
+      this.incDisabled = true;
+    }
+  }
+
+  public decrement(): void {
+    if (this.counter > 1) {
+      this.counter--;
+      if (this.counter <= 1) {
+        this.decDisabled = true;
+      }
+    }
+    if (this.counter <= this.product.quantityInStock && this.counter <= 10) {
+      this.incDisabled = false;
+    }
+  }
+
   public deleteProduct(): void {
-    this.productService.deleteProductDELETE(this.product.id.toString())
-      .then(() => {
-        this.router.navigate(['manage-products']);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.dialog.open(MessageDialogComponent)
+      .afterClosed().subscribe((confirmValue) => {
+        if (confirmValue) {
+          this.productService.deleteProductDELETE(this.product.id.toString())
+          .then(() => {
+            this.dialog.open(MessageDialogComponent, {data: 'Product successfully deleted.'})
+              .afterClosed().subscribe(() => this.router.navigate(['manage-products']));
+          })
+          .catch((error) => {
+            this.dialog.open(MessageDialogComponent, {data: error});
+          });
+        }
+    });
   }
 
   public modifyProduct(): void {
-    this.dialog.open(ModifyProductDialogComponent, {data: this.product, maxWidth: '400px'})
+    this.dialog.open(ModifyProductDialogComponent, {data: this.product, minWidth: '300px'})
       .afterClosed().subscribe(
       () => {
         this.getProduct();

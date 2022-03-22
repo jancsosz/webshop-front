@@ -1,0 +1,22 @@
+.admin-func {
+  margin-bottom: .5rem;
+}
+
+.inc-dec {
+  min-width: 30px;
+  width: 40px;
+}
+
+.mat-form-field{
+  .mat-input-element {
+    width: 1.5rem;
+    background-color: white;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto .25rem;
+  }
+  .mat-form-field-wrapper {
+    line-height: 1.5;
+  }
+}
