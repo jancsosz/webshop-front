@@ -1,6 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {ProductDto} from '../../../model/dto/ProductDto';
 
 @Component({
   selector: 'app-message-dialog',
@@ -9,11 +8,16 @@ import {ProductDto} from '../../../model/dto/ProductDto';
 })
 export class MessageDialogComponent implements OnInit {
 
+  confirm = false;
+
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: string
+    @Inject(MAT_DIALOG_DATA) public data
   ) { }
 
   ngOnInit(): void {
+    if (typeof this.data !== 'string') {
+      this.confirm = true;
+    }
   }
 
 }
