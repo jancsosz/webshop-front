@@ -5,6 +5,8 @@ import {AddProductComponent} from './components/add-product/add-product.componen
 import {ManageProductsComponent} from './components/manage-products/manage-products.component';
 import {ProductsComponent} from './components/products/products.component';
 import {ProductComponent} from './components/product/product.component';
+import {LoginComponent} from './components/login/login.component';
+import {SignUpComponent} from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductComponent },
   { path: 'manage-products', component: ManageProductsComponent },
   { path: 'add-product', component: AddProductComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
