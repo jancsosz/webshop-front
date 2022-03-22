@@ -18,9 +18,14 @@ import { ModifyProductDialogComponent } from './components/dialogs/modify-produc
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {MatOptionModule} from '@angular/material/core';
+import {MatOptionModule, MatRippleModule} from '@angular/material/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MessageDialogComponent } from './components/dialogs/message-dialog/message-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ProductsSidebarComponent } from './components/products-sidebar/products-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,10 @@ import { MessageDialogComponent } from './components/dialogs/message-dialog/mess
     ProductComponent,
     ProductsComponent,
     ModifyProductDialogComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    LoginComponent,
+    SignUpComponent,
+    ProductsSidebarComponent
   ],
     imports: [
         HttpClientModule,
@@ -46,7 +54,10 @@ import { MessageDialogComponent } from './components/dialogs/message-dialog/mess
         MatInputModule,
         MatSelectModule,
         MatOptionModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatRippleModule
     ],
   providers: [
     {
