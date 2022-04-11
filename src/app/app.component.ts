@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import localHu from '@angular/common/locales/hu';
+import {registerLocaleData} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'webshop-front';
+
+  constructor() {
+    registerLocaleData(localHu);
+  }
 }
