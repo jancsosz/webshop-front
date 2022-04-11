@@ -1,0 +1,15 @@
+.cart-button {
+  background-color: grey;
+}
+
+.cart-button:focus {
+  outline: none;
+}
+
+.mobile-cart-container {
+  position: fixed;
+  bottom: 200px;
+  right: 50px;
+  z-index: 1;
+  display: block;
+}
