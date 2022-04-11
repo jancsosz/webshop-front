@@ -1,2 +1,22 @@
 <app-menu></app-menu>
-<p>products works!</p>
+<h2 *ngIf="(!!products) && products.length === 0 && !isLoading">There are no products at the moment.</h2>
+<app-products-sidebar *ngIf="(products ? products.length > 0 : false) && !isLoading"></app-products-sidebar>
+<mat-spinner *ngIf="isLoading" style="margin: 2rem auto 0 auto" [diameter]="50"></mat-spinner>
+<div class="products-container">
+
+  <div class="card-grid">
+    <div *ngFor="let product of products" class="card card-shadow" (click)="navigateToProductDetail(product.id.toString())">
+      <div class="card-header card-image">
+        <img src="https://source.unsplash.com/178j8tJrNlc" />
+      </div>
+      <div class="card-body">
+        {{product.name}} <br>
+        {{product.description}}
+      </div>
+      <div class="card-footer">
+        <button mat-raised-button color="slategray">Details</button>
+        <!--      <button class="btn btn-outline">Contact Seller</button>-->
+      </div>
+    </div>
+  </div>
+</div>

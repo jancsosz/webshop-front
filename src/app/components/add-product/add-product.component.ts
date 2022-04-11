@@ -47,7 +47,7 @@ export class AddProductComponent implements OnInit {
         .then(() => {
           this.dialog.open(MessageDialogComponent, {data: 'Product successfully added.'})
             .afterClosed().subscribe(() => {
-              this.router.navigate(['manage-products']);
+              this.router.navigate(['products']);
           });
         })
         .catch(() => {
