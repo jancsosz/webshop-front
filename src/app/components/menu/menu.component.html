@@ -7,9 +7,6 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" (click)="navigateTo('manage-products')" >Manage products</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" (click)="navigateTo('products')" >Products</a>
       </li>
       <li class="nav-item">
@@ -18,7 +15,7 @@
     </ul>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-right: 0 !important;">
       <li class="nav-item">
-        <a class="nav-link" (click)="navigateTo('login')" >Login</a>
+        <a class="nav-link" href="{{loginUrl}}" >Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="navigateTo('sign-up')" >Sign up</a>
