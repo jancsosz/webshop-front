@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>
+  Your cart
+  <mat-icon [mat-dialog-close]="null" class="float-right cursor-pointer">close</mat-icon>
+</h2>
+<div class="cart-item row">
+  <div class="col-md-4">
+    Name
+  </div>
+  <div class="col-md-4">
+    Price
+  </div>
+  <div class="col-md-4">
+    Delete
+  </div>
+</div>
+<mat-dialog-content>
+
+  <div *ngFor="let cartItem of data.items">
+    <hr style="background-color: slategray">
+    <div class="cart-item row">
+      <div class="col-md-4">
+        {{cartItem.product.name}}({{cartItem.quantity}} db)
+      </div>
+      <div class="col-md-4">
+        {{cartItem.price | number:'':'hu-HU'}} Ft
+      </div>
+      <div class="col-md-4">
+        <mat-icon (click)="deleteCartItem(cartItem.cartItemNo)">delete</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button [mat-dialog-close]="null" mat-button color="slategray" matRipple type="button">Pay</button>
+  <div class="total">
+    Total:<br>
+    {{data.price | number:'':'hu-HU'}} Ft
+  </div>
+</mat-dialog-actions>

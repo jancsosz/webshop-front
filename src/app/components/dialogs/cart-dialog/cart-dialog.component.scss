@@ -1,0 +1,32 @@
+* {
+  color: slategray;
+}
+
+button {
+  color: aliceblue;
+}
+
+.total {
+  margin-left: auto;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+.mat-dialog-content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.mat-dialog-content::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+.mat-dialog-content::-webkit-scrollbar-thumb {
+  background: slategray;
+}
+
+/* fix bug on my computer */
+.navbar::-webkit-scrollbar {
+  width: 0;
+}
