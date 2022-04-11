@@ -5,8 +5,10 @@ import {ProductDto} from '../../model/dto/ProductDto';
 import {MatDialog} from '@angular/material/dialog';
 import {ModifyProductDialogComponent} from '../dialogs/modify-product-dialog/modify-product-dialog.component';
 import {FormGroup} from '@angular/forms';
-import {Message} from '@angular/compiler/src/i18n/i18n_ast';
 import {MessageDialogComponent} from '../dialogs/message-dialog/message-dialog.component';
+import {CartOperationService} from '../../services/cart-operation.service';
+import {CartItem} from '../../model/dto/CartItem';
+import {CartDto} from '../../model/dto/CartDto';
 
 @Component({
   selector: 'app-product',
@@ -17,30 +19,28 @@ export class ProductComponent implements OnInit {
 
   cartGroup: FormGroup;
   product: ProductDto;
-  quantity: number[];
-  counter = 1;
+  quantity = 1;
   decDisabled = true;
   incDisabled = false;
+  cart: CartDto;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
+    private cartOperationService: CartOperationService,
     private router: Router,
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.getProduct();
+    this.cart = this.cartOperationService.getCart();
   }
 
   private getProduct(): void {
     this.productService.getProductGET(this.route.snapshot.paramMap.get('id'))
       .then(result => {
         this.product = result;
-        for (let i = 0; i < this.product.quantityInStock; i++) {
-          // TODO
-          //  this.quantity
-        }
       })
       .catch(() => {
           this.router.navigate(['manage-products']);
@@ -50,28 +50,31 @@ export class ProductComponent implements OnInit {
 
   public addToCart(): void {
     // TODO
+    console.log(typeof this.createCartItem().price);
+    this.cartOperationService.addToCart(this.createCartItem());
+    this.cart = this.cartOperationService.getCart();
   }
 
   public increment(): void {
-    if (this.counter < this.product.quantityInStock && this.counter <= 10) {
-      this.counter++;
+    if (this.quantity < this.product.quantityInStock && this.quantity <= 10) {
+      this.quantity++;
       if (this.decDisabled) {
         this.decDisabled = false;
       }
     }
-    if (this.counter >= this.product.quantityInStock || this.counter >= 10) {
+    if (this.quantity >= this.product.quantityInStock || this.quantity >= 10) {
       this.incDisabled = true;
     }
   }
 
   public decrement(): void {
-    if (this.counter > 1) {
-      this.counter--;
-      if (this.counter <= 1) {
+    if (this.quantity > 1) {
+      this.quantity--;
+      if (this.quantity <= 1) {
         this.decDisabled = true;
       }
     }
-    if (this.counter <= this.product.quantityInStock && this.counter <= 10) {
+    if (this.quantity <= this.product.quantityInStock && this.quantity <= 10) {
       this.incDisabled = false;
     }
   }
@@ -99,6 +102,14 @@ export class ProductComponent implements OnInit {
         this.getProduct();
       }
     );
+  }
+
+  private createCartItem(): CartItem {
+    return {
+      product: this.product,
+      quantity: this.quantity,
+      price: this.product.price * this.quantity
+    };
   }
 
 }
