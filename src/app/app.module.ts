@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { ManageProductsComponent } from './components/manage-products/manage-products.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -26,6 +25,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProductsSidebarComponent } from './components/products-sidebar/products-sidebar.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartDialogComponent } from './components/dialogs/cart-dialog/cart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +34,15 @@ import { ProductsSidebarComponent } from './components/products-sidebar/products
     HomeComponent,
     MenuComponent,
     AddProductComponent,
-    ManageProductsComponent,
     ProductComponent,
     ProductsComponent,
     ModifyProductDialogComponent,
     MessageDialogComponent,
     LoginComponent,
     SignUpComponent,
-    ProductsSidebarComponent
+    ProductsSidebarComponent,
+    CartComponent,
+    CartDialogComponent
   ],
     imports: [
         HttpClientModule,
