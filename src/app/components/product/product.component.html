@@ -1,20 +1,26 @@
 <div *ngIf="product">
   <h1>{{product.name}}</h1>
-  <p>{{product.price}}</p>
-  <p>{{product.description}}</p>
+  <p>Price:<br>
+    {{product.price | number:'':'hu-HU'}} Ft
+  </p>
+  <p></p>
+  <p>Description:
+    <br>{{product.description}}
+  </p>
   <p>{{product.quantityInStock > 0 ? 'In stock' : 'Currently not in stock'}}</p>
   <div class="admin-func">
     <button mat-raised-button color="warn" (click)="deleteProduct()">Delete product</button>
     <button mat-raised-button color="slategray" (click)="modifyProduct()">Modify product</button>
   </div>
-  <form [formGroup]="cartGroup" (ngSubmit)="addToCart()">
-    <mat-form-field>
-      <button class="inc-dec" mat-button color="slategray" (click)="decrement()" [disabled]="decDisabled">-</button>
 
-      <input matInput type="text" [value]="counter" disabled required>
+  <mat-form-field>
+    <button class="inc-dec" mat-button color="slategray" (click)="decrement()" [disabled]="decDisabled">-</button>
 
-      <button class="inc-dec" mat-button color="slategray" (click)="increment()" [disabled]="incDisabled">+</button>
-    </mat-form-field>
-    <button style="margin-left: 20px" mat-raised-button color="slategray" type="submit">Add to cart</button>
-  </form>
+    <input matInput type="text" [value]="quantity.toString()" disabled required>
+
+    <button class="inc-dec" mat-button color="slategray" (click)="increment()" [disabled]="incDisabled">+</button>
+  </mat-form-field>
+  <button style="margin-left: 20px" mat-raised-button color="slategray" (click)="addToCart()">Add to cart</button>
+
+  <app-cart *ngIf="cart" [cart]="cart"></app-cart>
 </div>
