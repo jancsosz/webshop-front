@@ -9,6 +9,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 export class MessageDialogComponent implements OnInit {
 
   confirm = false;
+  clicked = false;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data
@@ -17,6 +18,12 @@ export class MessageDialogComponent implements OnInit {
   ngOnInit(): void {
     if (typeof this.data !== 'string') {
       this.confirm = true;
+    }
+  }
+
+  disableButton(): void {
+    if (!this.clicked) {
+      this.clicked = true;
     }
   }
 

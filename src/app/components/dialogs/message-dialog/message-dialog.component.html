@@ -1,3 +1,5 @@
+<h2 mat-dialog-title *ngIf="!confirm">Message</h2>
+<h2 mat-dialog-title *ngIf="confirm">Confirm</h2>
 <mat-dialog-content *ngIf="!confirm">
   {{data}}
 </mat-dialog-content>
@@ -6,7 +8,7 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button *ngIf="confirm" [mat-dialog-close]="null" mat-button color="slategray" matRipple type="button">Cancel</button>
-  <button *ngIf="confirm" [mat-dialog-close]="true" mat-button color="slategray" matRipple type="button">Ok</button>
+  <button *ngIf="confirm" [mat-dialog-close]="true" (click)="disableButton()" [disabled]="clicked" mat-button color="slategray" matRipple type="button">Ok</button>
 
   <button *ngIf="!confirm" [mat-dialog-close]="null" mat-button color="slategray" matRipple type="button">Close</button>
 </mat-dialog-actions>
