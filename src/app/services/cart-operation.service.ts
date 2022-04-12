@@ -39,8 +39,6 @@ export class CartOperationService {
       }
     );
     this.updateCart();
-    // @ts-ignore
-    this.saveCart();
     // TODO
     console.log(this.cart);
   }
@@ -54,6 +52,7 @@ export class CartOperationService {
     this.cart.items.forEach(cartItem => {
       this.cart.price += cartItem.price;
     });
+    this.saveCart();
   }
 
   emptyCart(): void {
@@ -75,6 +74,6 @@ export class CartOperationService {
         // tslint:disable-next-line:no-unused-expression
         cartItem.cartItemNo === cartItemNo;
     })), 1);
-    this.saveCart();
+    this.updateCart();
   }
 }
