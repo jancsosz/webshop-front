@@ -27,6 +27,9 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ProductsSidebarComponent } from './components/products-sidebar/products-sidebar.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartDialogComponent } from './components/dialogs/cart-dialog/cart-dialog.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [
@@ -42,29 +45,35 @@ import { CartDialogComponent } from './components/dialogs/cart-dialog/cart-dialo
     SignUpComponent,
     ProductsSidebarComponent,
     CartComponent,
-    CartDialogComponent
+    CartDialogComponent,
+    CheckoutComponent
   ],
-    imports: [
-        HttpClientModule,
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        BrowserAnimationsModule,
-        MatGridListModule,
-        MatButtonModule,
-        MatDialogModule,
-        MatInputModule,
-        MatSelectModule,
-        MatOptionModule,
-        ReactiveFormsModule,
-        MatProgressSpinnerModule,
-        MatIconModule,
-        MatRippleModule
-    ],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatRippleModule,
+    MatStepperModule
+  ],
   providers: [
     {
       provide: MatDialogRef,
       useValue: {}
+    },
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
     }
   ],
   bootstrap: [AppComponent]
