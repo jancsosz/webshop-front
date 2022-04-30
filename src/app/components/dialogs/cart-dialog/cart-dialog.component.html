@@ -31,7 +31,7 @@
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [mat-dialog-close]="null" mat-button color="slategray" matRipple type="button">Pay</button>
+  <button [mat-dialog-close]="null" (click)="globalService.navigate('checkout')" mat-button color="slategray" matRipple type="button">Pay</button>
   <div class="total">
     Total:<br>
     {{data.price | number:'':'hu-HU'}} Ft

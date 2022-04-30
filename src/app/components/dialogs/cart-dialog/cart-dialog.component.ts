@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {CartDto} from '../../../model/dto/CartDto';
 import {CartOperationService} from '../../../services/cart-operation.service';
+import {GlobalService} from '../../../services/global.service';
 
 @Component({
   selector: 'app-cart-dialog',
@@ -11,6 +11,7 @@ import {CartOperationService} from '../../../services/cart-operation.service';
 export class CartDialogComponent implements OnInit {
 
   constructor(
+    public globalService: GlobalService,
     private cartOperationService: CartOperationService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
@@ -21,5 +22,4 @@ export class CartDialogComponent implements OnInit {
   public deleteCartItem(cartItemNo: any): void {
     this.cartOperationService.deleteCartItem(cartItemNo);
   }
-
 }
