@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+<mat-horizontal-stepper>
+  <mat-step label="Your items" state="cart">
+    <div *ngFor="let cartItem of cartDto.items">
+      <div class="cart-item row">
+        <div class="col-md-4  item-col">
+          {{cartItem.product.name}}({{cartItem.quantity}} db)
+        </div>
+        <div class="col-md-4 item-col">
+          {{cartItem.price | number:'':'hu-HU'}} Ft
+        </div>
+        <div class="col-md-4 item-col">
+          <mat-icon (click)="deleteCartItem(cartItem.cartItemNo)">delete</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="step-action">
+      <button mat-button matStepperNext color="slategray" matRipple type="button">Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Billing & payment" state="bill">
+
+    <div class="step-action">
+      <button mat-button matStepperPrevious color="slategray" matRipple type="button">Back</button>
+      <button mat-button matStepperNext color="slategray" matRipple type="button">Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Checkout" state="card">
+
+    <div class="step-action">
+      <button mat-button matStepperPrevious color="slategray" matRipple type="button">Back</button>
+      <button mat-button matStepperNext color="slategray" matRipple type="button">Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Complete" state="done">
+
+    <div class="step-action">
+      <button mat-button matStepperPrevious color="slategray" matRipple type="button">Back</button>
+    </div>
+  </mat-step>
+
+  <ng-template matStepperIcon="bill">
+    <mat-icon>receipt_long</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="card">
+    <mat-icon>credit_card</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="cart">
+    <mat-icon>shopping_cart</mat-icon>
+  </ng-template>
+</mat-horizontal-stepper>
+
+

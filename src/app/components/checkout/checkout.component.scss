@@ -1,0 +1,37 @@
+.mat-stepper-horizontal {
+  background-color: #131313;
+}
+
+:host ::ng-deep .mat-step-text-label {
+  color: aliceblue;
+}
+
+:host ::ng-deep .mat-stepper-horizontal-line {
+  background-color: aliceblue;
+}
+
+:host ::ng-deep .mat-step-icon {
+  background-color: hsl(200, 50%, 50%);
+}
+
+:host ::ng-deep .mat-step-icon-selected {
+  background-color: hsl(200, 50%, 70%);
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+.cart-item {
+  height: 3em;
+}
+
+.item-col {
+  margin: auto;
+  text-align: center;
+}
+
+.step-action {
+  display: flex;
+  justify-content: center;
+}
