@@ -22,5 +22,5 @@
   </mat-form-field>
   <button style="margin-left: 20px" mat-raised-button color="slategray" (click)="addToCart()">Add to cart</button>
 
-  <app-cart *ngIf="cart" [cart]="cart"></app-cart>
+  <app-cart *ngIf="cart && cart.items.length > 0" [cart]="cart"></app-cart>
 </div>
