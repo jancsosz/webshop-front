@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 1rem">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 1rem; z-index: 0">
   <a class="navbar-brand" (click)="navigateTo('home')"><img alt="logo" src="assets/icons/arm-svgrepo-com.svg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
     </ul>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-right: 0 !important;">
       <li *ngIf="currentRoute === '/products'">
-        <button (click)="openCartDialog()" style="outline: 0; border:none; background-color: #343a40; cursor: default" [disabled]="cartDialogOpen">
+        <button (click)="openCartDialog()" style="outline: 0; border:none; background-color: #343a40; cursor: default" [disabled]="cartDialogOpen || !cartDto || cartDto.items.length === 0">
           <mat-icon style="margin-top: 8px">shopping_cart</mat-icon>
         </button>
       </li>

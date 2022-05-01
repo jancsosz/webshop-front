@@ -4,6 +4,7 @@ import {environment} from '../../../environments/environment';
 import {MatDialog} from '@angular/material/dialog';
 import {CartDialogComponent} from '../dialogs/cart-dialog/cart-dialog.component';
 import {CartOperationService} from '../../services/cart-operation.service';
+import {CartDto} from '../../model/dto/CartDto';
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +13,7 @@ import {CartOperationService} from '../../services/cart-operation.service';
 })
 export class MenuComponent implements OnInit {
 
+  cartDto: CartDto;
   cartDialogOpen = false;
   currentRoute: string;
   loginUrl = `${environment.rootUrl}/login`;
@@ -24,6 +26,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentRoute = this.router.url;
+    this.cartDto = this.cartOperationService.getCart();
   }
 
   navigateTo(path: string): void {
@@ -32,7 +35,8 @@ export class MenuComponent implements OnInit {
 
   openCartDialog(): void {
     this.cartDialogOpen = true;
-    this.dialog.open(CartDialogComponent, {data: this.cartOperationService.getCart()})
+
+    this.dialog.open(CartDialogComponent, {data: this.cartDto, })
       .afterClosed().subscribe(() => this.cartDialogOpen = false);
   }
 }
