@@ -17,7 +17,6 @@ import {CartDto} from '../../model/dto/CartDto';
 })
 export class ProductComponent implements OnInit {
 
-  cartGroup: FormGroup;
   product: ProductDto;
   quantity = 1;
   decDisabled = true;

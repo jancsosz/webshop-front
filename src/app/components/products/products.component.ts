@@ -14,7 +14,6 @@ export class ProductsComponent implements OnInit {
 
   products: ProductDto[];
   innerWidth: number;
-  colCount: number;
   isLoading = true;
 
   constructor(
@@ -24,8 +23,6 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.innerWidth = window.innerWidth;
-    this.innerWidth > 768 ? this.colCount = 3 : this.innerWidth > 500 ? this.colCount = 2 : this.colCount = 1;
     this.productService.getProductsGET()
       .then(result => {
         this.products = result;
