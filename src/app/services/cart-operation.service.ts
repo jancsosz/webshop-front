@@ -21,16 +21,12 @@ export class CartOperationService {
       this.cart.items = new Array<CartItem>();
       this.cart.price = 0;
       this.saveCart();
-      // TODO
-      console.log(this.cart);
     }
 
   }
 
   addToCart(cartItem: CartItem): void {
     this.createCart();
-    // TODO
-    console.log(this.cart);
     this.cart.items.push(
       {
         // @ts-ignore
@@ -39,8 +35,6 @@ export class CartOperationService {
       }
     );
     this.updateCart();
-    // TODO
-    console.log(this.cart);
   }
 
   saveCart(): void {
@@ -65,8 +59,6 @@ export class CartOperationService {
   }
 
   deleteCartItem(cartItemNo: number): void {
-    // TODO
-    console.log(this.cart.items);
     // @ts-ignore
     this.cart.items.splice(this.cart.items.indexOf(
       this.cart.items.find(cartItem => {
