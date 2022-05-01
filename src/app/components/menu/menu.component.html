@@ -15,7 +15,9 @@
     </ul>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="margin-right: 0 !important;">
       <li *ngIf="currentRoute === '/products'">
-        <mat-icon (click)="openCartDialog()" style="margin-top: 8px">shopping_cart</mat-icon>
+        <button (click)="openCartDialog()" style="outline: 0; border:none; background-color: #343a40; cursor: default" [disabled]="cartDialogOpen">
+          <mat-icon style="margin-top: 8px">shopping_cart</mat-icon>
+        </button>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{loginUrl}}" >Login</a>

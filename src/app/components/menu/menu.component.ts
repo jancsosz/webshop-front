@@ -12,6 +12,7 @@ import {CartOperationService} from '../../services/cart-operation.service';
 })
 export class MenuComponent implements OnInit {
 
+  cartDialogOpen = false;
   currentRoute: string;
   loginUrl = `${environment.rootUrl}/login`;
 
@@ -30,6 +31,8 @@ export class MenuComponent implements OnInit {
   }
 
   openCartDialog(): void {
-    this.dialog.open(CartDialogComponent, {data: this.cartOperationService.getCart()});
+    this.cartDialogOpen = true;
+    this.dialog.open(CartDialogComponent, {data: this.cartOperationService.getCart()})
+      .afterClosed().subscribe(() => this.cartDialogOpen = false);
   }
 }
