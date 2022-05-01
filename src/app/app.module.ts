@@ -30,6 +30,7 @@ import { CartDialogComponent } from './components/dialogs/cart-dialog/cart-dialo
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
     MatProgressSpinnerModule,
     MatIconModule,
     MatRippleModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
   ],
   providers: [
     {
