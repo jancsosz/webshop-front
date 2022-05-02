@@ -52,6 +52,7 @@ export class CartOperationService {
   emptyCart(): void {
     this.cart.items = new Array<CartItem>();
     this.cart.price = 0;
+    this.saveCart();
   }
 
   getCart(): CartDto {
@@ -65,7 +66,8 @@ export class CartOperationService {
         // @ts-ignore
         // tslint:disable-next-line:no-unused-expression
         cartItem.cartItemNo === cartItemNo;
-    })), 1);
+      })
+    ), 1);
     this.updateCart();
   }
 }
