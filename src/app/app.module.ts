@@ -31,6 +31,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { FooterComponent } from './components/static/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ProductsSidebarComponent,
     CartComponent,
     CartDialogComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,
