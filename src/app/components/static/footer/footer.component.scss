@@ -1,0 +1,13 @@
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: auto;
+  background-color: #343a40;
+  height: 80px;
+  width: 100%;
+}
+
+.footer-item {
+  cursor: pointer;
+}
