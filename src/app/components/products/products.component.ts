@@ -23,6 +23,10 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getProdutcs();
+  }
+
+  getProdutcs(): void {
     this.productService.getProductsGET()
       .then(result => {
         this.products = result;
@@ -30,6 +34,7 @@ export class ProductsComponent implements OnInit {
         this.isLoading = false;
       })
       .catch((error) => {
+        console.log(error);
         this.dialog.open(MessageDialogComponent, {data: 'There was an error while loading products.'});
         this.isLoading = false;
       });
