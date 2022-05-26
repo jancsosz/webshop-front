@@ -13,6 +13,7 @@ import {CartDto} from '../../model/dto/CartDto';
 })
 export class MenuComponent implements OnInit {
 
+  menuOpen = false;
   cartDto: CartDto;
   cartDialogOpen = false;
   currentRoute: string;
@@ -38,5 +39,18 @@ export class MenuComponent implements OnInit {
 
     this.dialog.open(CartDialogComponent, {data: this.cartDto, })
       .afterClosed().subscribe(() => this.cartDialogOpen = false);
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  //   if (this.menuOpen) {
+  //     window.addEventListener('mousedown', (event) => {
+  //       const mobileMenu = document.getElementsByClassName('mobile-menu');
+  //       // @ts-ignore
+  //       if (event.target !== mobileMenu) {
+  //         this.menuOpen = false;
+  //       }
+  //     });
+  //   }
   }
 }
