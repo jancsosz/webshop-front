@@ -1,2 +1,24 @@
 <app-menu></app-menu>
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <mat-grid-list cols="1" rowHeight="80px">
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" type="text">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <button mat-raised-button color="slategray" matRipple type="submit">Login</button>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</form>
