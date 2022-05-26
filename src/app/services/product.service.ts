@@ -9,7 +9,6 @@ import {ProductDto} from '../model/dto/ProductDto';
 export class ProductService extends BaseService{
 
   private productUrl = '/products';
-  private addProductUrl = '';
 
   constructor(http: HttpClient) {
     super(http);
