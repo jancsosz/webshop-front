@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 1rem; z-index: 1">
   <a class="navbar-brand" (click)="navigateTo('home')"><img alt="logo" src="assets/icons/arm-svgrepo-com.svg"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+  <button (click)="toggleMenu()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -20,7 +20,7 @@
         </button>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{loginUrl}}" >Login</a>
+        <a class="nav-link" (click)="navigateTo('login')" >Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="navigateTo('sign-up')" >Sign up</a>
@@ -28,3 +28,19 @@
     </ul>
   </div>
 </nav>
+
+<!--mobile menu-->
+<ul class="mobile-menu" *ngIf="menuOpen">
+  <li (click)="navigateTo('products')" class="mobile-menu-item">
+    Products
+  </li>
+  <li (click)="navigateTo('add-product')" class="mobile-menu-item">
+    Add product
+  </li>
+  <li (click)="navigateTo('login')" class="mobile-menu-item">
+    Login
+  </li>
+  <li (click)="navigateTo('sign-up')" class="mobile-menu-item">
+    Sign up
+  </li>
+</ul>

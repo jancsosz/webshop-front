@@ -7,3 +7,39 @@ img {
 a {
   cursor: pointer;
 }
+
+.mobile-menu {
+  list-style-type: none;
+  position: absolute;
+  width: fit-content;
+  z-index: 3;
+  top: 3.5em;
+  right: .5em;
+}
+
+.mobile-menu-item {
+  background-color: black;
+  padding: .5em 1em;
+  cursor: pointer;
+  transition: background-color .4s;
+  transition-timing-function: ease;
+
+  a:link {
+    color:slategray;
+  }
+  a:visited {
+    color: slategray;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+hr {
+  margin: 0;
+  background-color: slategray;
+}
+
+.mobile-menu-item:hover {
+  background-color: #1e1e24;
+}
